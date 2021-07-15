@@ -1,0 +1,16 @@
+<app-curr-state></app-curr-state>
+
+<table>
+    <thead>
+        <tr>
+            <th>From</th>
+            <th>Subject</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let mail of (allMails$ | async)" routerLink="{{mail.id}}">
+            <td>{{mail.from}}</td>
+            <td>{{mail.subject}}</td>
+        </tr>
+    </tbody>
+</table>
