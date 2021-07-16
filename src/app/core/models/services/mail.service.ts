@@ -2,12 +2,15 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators'
 import { Mail } from '../data/mail.model';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MailService {
   readonly baseUrl = 'http://localhost:3000/mails';
+  private allMails: Mail[] = []
+  private allMails$ = new BehaviorSubject<Mail[]>(this.allMails);
 
   constructor(private httpClient: HttpClient) { }
 
@@ -36,14 +39,18 @@ export class MailService {
     return numberOfUnreadMails;
   }
 
-  getAllMails(): Promise<Mail[]>{
+  async mailsToArray(): Promise<void>{
     const url = this.baseUrl;
 
-    let allMails = this.httpClient
-                  .get<Mail[]>(url)
-                  .toPromise();
+    this.allMails = await (this.httpClient
+                          .get<Mail[]>(url)
+                          .toPromise());
 
-    return allMails;
+    this.allMails$.next(this.allMails);
+  }
+
+  getAllMails(): Observable<Mail[]>{
+    return this.allMails$.asObservable();
   }
 
   getMailById(mailId: number): Promise<Mail>{

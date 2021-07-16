@@ -10,6 +10,8 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { CurrStateComponent } from './components/curr-state/curr-state.component';
 import { MailPageComponent } from './components/mail-page/mail-page.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSliderModule } from '@angular/material/slider';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,8 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    BrowserAnimationsModule,
+    MatSliderModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
