@@ -10,17 +10,13 @@
     <tbody>
         <tr *ngFor="let mail of (allMails$ | async)">
             <td routerLink="{{mail.id}}">
-                <b *ngIf="(!mail.isRead)">{{mail.from}}</b>
-                <span *ngIf="(mail.isRead)">{{mail.from}}</span>
+                <span [style.font-weight]="showBoldness(mail.isRead)">{{mail.from}}</span>
             </td>
             <td>
-                <!--<span *ngIf="(mail.isFlagged)" class="material-icons" value="flag" (click)="changeFlagColor(mail.id)">flag</span>-->
-                <span *ngIf="(mail.isFlagged)" class="material-icons" value="flag" [style.color]="red" (click)="changeFlagColor(mail.id)">flag</span>
-                <span *ngIf="(!mail.isFlagged)" class="material-icons" value="flag" [style.color]="grey" (click)="changeFlagColor(mail.id)">flag</span>
+                <span class="material-icons" value="flag" [style.color]="showFlagColor(mail.isFlagged)" (click)="changeFlagColor(mail.id)">flag</span>
 
                 <span routerLink="{{mail.id}}">
-                    <b *ngIf="(!mail.isRead)">{{mail.subject}}</b>
-                    <span *ngIf="(mail.isRead)">{{mail.subject}}</span>
+                    <span [style.font-weight]="showBoldness(mail.isRead)">{{mail.subject}}</span>
                 </span>
             </td>
         </tr>

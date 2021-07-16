@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Mail } from 'src/app/core/models/data/mail.model';
+import { ColorService } from 'src/app/core/models/services/color.service';
 import { MailService } from 'src/app/core/models/services/mail.service';
 
 @Component({
@@ -11,10 +12,11 @@ import { MailService } from 'src/app/core/models/services/mail.service';
 export class MailsListComponent implements OnInit {
   allMails$!: Observable<Mail[]>;
 
-  red = "#ff4d4d";
-  grey = "#f5f5f5";
+  bold = "bold";
 
-  constructor(private mailService: MailService) { }
+  constructor(private mailService: MailService,
+              private colorService: ColorService
+              ) { }
 
   ngOnInit() {
     this.mailService.mailsToArray();
@@ -25,13 +27,11 @@ export class MailsListComponent implements OnInit {
     this.mailService.setMailFlag(Number(mailId)).then(() => this.mailService.mailsToArray());
   }
 
-  /*async currentFlagColor(mailId: number | undefined): Promise<String>{
-    let isFlagged = await this.mailService.isMailFlagged(Number(mailId));
+  showFlagColor(isFlagged: boolean): String{
+    return this.colorService.showFlagColor(isFlagged);
+  }
 
-    if(true == isFlagged){
-      return this.red;
-    }
-    
-    return this.grey;
-  }*/
+  showBoldness(isRead: boolean): String{
+    return this.colorService.showBoldness(isRead);
+  }
 }
