@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { map } from 'rxjs/operators'
+import { filter, map } from 'rxjs/operators'
 import { Mail } from '../data/mail.model';
 import { BehaviorSubject, Observable } from 'rxjs';
 
@@ -94,5 +94,16 @@ export class MailService {
             .toPromise()
 
     return mail;
+  }
+
+  async getMailsByFolderId(folderId: number): Promise<Mail[]>{
+    const url = `${this.baseUrl}`;
+
+    let mails = this.httpClient.get<Mail[]>(url)
+                                  .pipe(
+                                    map(mail => mail.filter(m => m.folderId === folderId)))
+                                  .toPromise();
+
+    return mails;                                  
   }
 }

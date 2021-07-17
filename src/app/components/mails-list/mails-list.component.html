@@ -1,24 +1,3 @@
 <app-curr-state></app-curr-state>
 
-<table>
-    <thead>
-        <tr class="headlines">
-            <th>From</th>
-            <th></th>
-            <th>Subject</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr class="items" *ngFor="let mail of (allMails$ | async)">
-            <td routerLink="{{mail.id}}">
-                <span class="from" [style.font-weight]="showBoldness(mail.isRead)">{{mail.from}}</span>
-            </td>
-            <td>
-                <span class="material-icons" value="flag" [style.color]="showFlagColor(mail.isFlagged)" (click)="changeFlagColor(mail.id)">flag</span>
-            </td>
-            <td routerLink="{{mail.id}}">
-                <span [style.font-weight]="showBoldness(mail.isRead)">{{mail.subject}}</span>
-            </td>
-        </tr>
-    </tbody>
-</table>
+<app-mails-table></app-mails-table>

@@ -1,0 +1,28 @@
+table{
+    cursor: pointer;
+    border-collapse: collapse;
+}
+
+.items:hover{
+    background-color: rgb(252, 243, 239);
+}
+
+table{
+    width: 80%;
+    margin: 20px auto;
+    
+}
+
+.material-icons{
+    margin: 10px;
+    margin-right: 5px;
+}
+
+.headlines{
+    background-color: #4f5fbd;
+    color: white;
+}
+
+th{
+    padding: 15px;
+}

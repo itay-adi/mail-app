@@ -16,6 +16,8 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { FoldersComponent } from './components/folders/folders.component';
 import { FoldersListComponent } from './components/folders-list/folders-list.component';
+import {MatListModule} from '@angular/material/list';
+import { MailsTableComponent } from './components/mails-table/mails-table.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,7 @@ import { FoldersListComponent } from './components/folders-list/folders-list.com
     PageNotFoundComponent,
     FoldersComponent,
     FoldersListComponent,
+    MailsTableComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,6 +40,7 @@ import { FoldersListComponent } from './components/folders-list/folders-list.com
     MatSliderModule,
     MatButtonModule,
     MatToolbarModule,
+    MatListModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

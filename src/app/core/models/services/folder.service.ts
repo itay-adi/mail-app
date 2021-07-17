@@ -1,9 +1,29 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { Folder } from '../data/folder.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FolderService {
+  readonly baseUrl = 'http://localhost:3000/folders';
+  private allFolders: Folder[] = []
+  private allFolders$ = new BehaviorSubject<Folder[]>(this.allFolders);
 
-  constructor() { }
+  constructor(private httpClient: HttpClient) { }
+
+  async foldersToArray(): Promise<void>{
+    const url = this.baseUrl;
+
+    this.allFolders = await (this.httpClient
+                          .get<Folder[]>(url)
+                          .toPromise());
+
+    this.allFolders$.next(this.allFolders);
+  }
+
+  getAllFolders(): Observable<Folder[]>{
+    return this.allFolders$.asObservable();
+  }
 }

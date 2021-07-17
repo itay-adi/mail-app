@@ -1,0 +1,14 @@
+:host{
+    display: flex;
+    flex-direction: column;
+    margin: 50px;
+}
+
+mat-list-item{
+    max-width: 350px;
+}
+
+mat-list-item:hover{
+    cursor: pointer;
+    background-color: rgb(252, 243, 239);
+}

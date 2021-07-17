@@ -14,6 +14,7 @@ const routes: Routes = [
   { path: 'mails/:id', component: MailPageComponent},
   { path: 'folders', component: FoldersListComponent},
   { path: 'folders/:id', component: FoldersComponent},
+  { path: 'folders/:folderId/:id', component: MailPageComponent},
   { path: '**', component: PageNotFoundComponent}
 ];
 
