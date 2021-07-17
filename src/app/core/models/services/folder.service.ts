@@ -13,7 +13,7 @@ export class FolderService {
 
   constructor(private httpClient: HttpClient) { }
 
-  async foldersToArray(): Promise<void>{
+  async foldersToArray(): Promise<Folder[]>{
     const url = this.baseUrl;
 
     this.allFolders = await (this.httpClient
@@ -21,9 +21,21 @@ export class FolderService {
                           .toPromise());
 
     this.allFolders$.next(this.allFolders);
+
+    return(Promise.resolve(this.allFolders));
   }
 
   getAllFolders(): Observable<Folder[]>{
     return this.allFolders$.asObservable();
+  }
+
+  addNewFolder(folder: Folder): Promise<Folder>{
+    const url = this.baseUrl;
+
+    let newFolder = this.httpClient
+                      .post<Folder>(url, folder)
+                      .toPromise();
+
+    return newFolder;
   }
 }

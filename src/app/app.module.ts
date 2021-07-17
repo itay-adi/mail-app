@@ -16,8 +16,9 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { FoldersComponent } from './components/folders/folders.component';
 import { FoldersListComponent } from './components/folders-list/folders-list.component';
-import {MatListModule} from '@angular/material/list';
+import { MatListModule} from '@angular/material/list';
 import { MailsTableComponent } from './components/mails-table/mails-table.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,8 @@ import { MailsTableComponent } from './components/mails-table/mails-table.compon
     MatButtonModule,
     MatToolbarModule,
     MatListModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,3 +1,10 @@
 <mat-list>
     <mat-list-item *ngFor="let folder of (allFolders$ | async)" routerLink="{{folder.id}}">{{folder.name}}</mat-list-item>
 </mat-list>
+
+<form [formGroup]="newFolder" class="add" (ngSubmit)="addFolder(name.value)">
+    <input formControlName="name" #name class="add-item" type="text" placeholder="Add a new Folder">
+    <button [disabled]="newFolder.invalid" class="button" style="vertical-align:middle">
+        <span>+</span>
+    </button>
+</form>

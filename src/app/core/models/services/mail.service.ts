@@ -106,4 +106,16 @@ export class MailService {
 
     return mails;                                  
   }
+
+  setMailFolderId(mailId: number, folderId: number): Promise<Mail>{
+    const url = `${this.baseUrl}/${mailId}`;
+
+    if(this.allMails.find(m => m.id == mailId)){
+      return this.httpClient
+      .patch<Mail>(url, {"folderId": folderId})
+      .toPromise();
+    }
+
+    return Promise.reject();
+  }
 }

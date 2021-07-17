@@ -4,6 +4,18 @@
     <p>{{mail.content}}</p>
 </div>
 
+<h3 class="seperate">_____________________________________</h3>
+
+<button (click)="setFolder()">dssdf</button>
+
+<!--<div class="form-field" *ngIf="get('icon') as field">
+    <label>Attach to a Folder: </label>
+    <select name="folders" class="folders" formControlName="folders">
+        <option value=""></option>
+        <option *ngFor="let folder of (folders$ | async)" value="folder.id">{{folder.name}}</option>
+    </select>
+</div>-->
+
 <button class="button" routerLink=".."><span>Back to List</span></button>
 
 <div *ngIf="!(mail$ | async)">
