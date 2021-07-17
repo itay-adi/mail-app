@@ -1,6 +1,11 @@
-<button routerLink="..">Back to List</button>
-
 <div *ngIf="(mail$ | async) as mail">
-    <h2>{{mail.subject}}</h2>
+    <h2>From: {{mail.from}}</h2>
+    <h1>{{mail.subject}}</h1>
     <p>{{mail.content}}</p>
+</div>
+
+<button class="button" routerLink=".."><span>Back to List</span></button>
+
+<div *ngIf="!(mail$ | async)">
+    <h2>Mail Not Found...</h2>
 </div>

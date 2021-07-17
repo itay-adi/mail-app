@@ -2,22 +2,22 @@
 
 <table>
     <thead>
-        <tr>
+        <tr class="headlines">
             <th>From</th>
+            <th></th>
             <th>Subject</th>
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let mail of (allMails$ | async)">
+        <tr class="items" *ngFor="let mail of (allMails$ | async)">
             <td routerLink="{{mail.id}}">
-                <span [style.font-weight]="showBoldness(mail.isRead)">{{mail.from}}</span>
+                <span class="from" [style.font-weight]="showBoldness(mail.isRead)">{{mail.from}}</span>
             </td>
             <td>
                 <span class="material-icons" value="flag" [style.color]="showFlagColor(mail.isFlagged)" (click)="changeFlagColor(mail.id)">flag</span>
-
-                <span routerLink="{{mail.id}}">
-                    <span [style.font-weight]="showBoldness(mail.isRead)">{{mail.subject}}</span>
-                </span>
+            </td>
+            <td routerLink="{{mail.id}}">
+                <span [style.font-weight]="showBoldness(mail.isRead)">{{mail.subject}}</span>
             </td>
         </tr>
     </tbody>

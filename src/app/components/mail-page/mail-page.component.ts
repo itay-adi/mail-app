@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Mail } from 'src/app/core/models/data/mail.model';
 import { MailService } from 'src/app/core/models/services/mail.service';
 
+
 @Component({
   selector: 'app-mail-page',
   templateUrl: './mail-page.component.html',

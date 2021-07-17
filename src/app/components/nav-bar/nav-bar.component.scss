@@ -1,9 +1,18 @@
-.bar{
-    background-color: blue;
-    display: flex;
-    
+a{
+    color: white;
+    text-decoration: none;
+    padding: 8px;
+}
+
+a:hover{
+    color: rgb(250, 191, 135);
 }
 
 a.here{
-    color: rgb(245, 0, 0);
+    color: rgb(250, 155, 67);
+}
+
+.seperator{
+    margin: 15px;
+    background-color: white;
 }

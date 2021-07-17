@@ -12,6 +12,10 @@ import { MailPageComponent } from './components/mail-page/mail-page.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSliderModule } from '@angular/material/slider';
+import {MatButtonModule} from '@angular/material/button';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import { FoldersComponent } from './components/folders/folders.component';
+import { FoldersListComponent } from './components/folders-list/folders-list.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +25,9 @@ import { MatSliderModule } from '@angular/material/slider';
     NavBarComponent,
     CurrStateComponent,
     MailPageComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    FoldersComponent,
+    FoldersListComponent,
   ],
   imports: [
     BrowserModule,
@@ -29,6 +35,8 @@ import { MatSliderModule } from '@angular/material/slider';
     HttpClientModule,
     BrowserAnimationsModule,
     MatSliderModule,
+    MatButtonModule,
+    MatToolbarModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

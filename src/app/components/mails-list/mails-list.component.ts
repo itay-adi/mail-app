@@ -12,8 +12,6 @@ import { MailService } from 'src/app/core/models/services/mail.service';
 export class MailsListComponent implements OnInit {
   allMails$!: Observable<Mail[]>;
 
-  bold = "bold";
-
   constructor(private mailService: MailService,
               private colorService: ColorService
               ) { }
