@@ -1,0 +1,107 @@
+{
+  "folders": [
+    {
+      "name": "Spam",
+      "id": 1
+    },
+    {
+      "name": "Work",
+      "id": 2
+    },
+    {
+      "name": "TV Bill",
+      "id": 3
+    },
+    {
+      "name": "Internet",
+      "id": 4
+    },
+    {
+      "id": 5,
+      "name": "Insurance"
+    }
+  ],
+  "mails": [
+    {
+      "foldId": 2,
+      "from": "person A",
+      "isRead": true,
+      "isFlagged": false,
+      "subject": "welcome to nice",
+      "content": "we would like to congrat you and say welcome to nice",
+      "id": 1
+    },
+    {
+      "foldId": -1,
+      "from": "person B",
+      "isRead": true,
+      "isFlagged": true,
+      "subject": "You have been selected to get an exclusive reward",
+      "content": "To qualify for this special offer, simply complete our 30-second marketing",
+      "id": 2
+    },
+    {
+      "foldId": 3,
+      "from": "person C",
+      "isRead": false,
+      "isFlagged": true,
+      "subject": "new notification",
+      "content": "You have missed communication with a cool girl",
+      "id": 3
+    },
+    {
+      "foldId": 4,
+      "from": "person C",
+      "isRead": false,
+      "isFlagged": true,
+      "subject": "Amazon has a surprise for you",
+      "content": "The advertiser does not manage your subscription",
+      "id": 4
+    },
+    {
+      "foldId": "3",
+      "from": "person C",
+      "isRead": true,
+      "isFlagged": false,
+      "subject": "postman",
+      "content": "postman postman postman",
+      "id": 5
+    },
+    {
+      "foldId": -1,
+      "from": "person C",
+      "isRead": false,
+      "isFlagged": true,
+      "subject": "User liked your profile",
+      "content": "Im not a virus Im not a virus Im not a virus Im not a virus Im not a virus Im not a virus",
+      "id": 6
+    },
+    {
+      "foldId": 1,
+      "from": "person C",
+      "isRead": true,
+      "isFlagged": false,
+      "subject": "Get in now",
+      "content": "Why Bitcoin's Price is Skyrocketing, Why Bitcoin's Price is Skyrocketing, Why Bitcoin's Price is Skyrocketing, Why Bitcoin's Price is Skyrocketing",
+      "id": 7
+    },
+    {
+      "foldId": 4,
+      "from": "person E",
+      "isRead": true,
+      "isFlagged": false,
+      "subject": "WIN a trip to LAS VEGAS worth $1000",
+      "content": "WIN a trip to LAS VEGAS worth $1000, WIN a trip to LAS VEGAS worth $1000, WIN a trip to LAS VEGAS worth $1000, WIN a trip to LAS VEGAS worth $1000",
+      "id": 8
+    },
+    {
+      "foldId": 4,
+      "from": "abc@gmail.com",
+      "isRead": true,
+      "isFlagged": false,
+      "subject": "Bitcoin value is about to rise, invest now before you miss out",
+      "content": "Bitcoin value is about to rise, invest now before you miss out, Bitcoin value is about to rise, invest now before you miss out, Bitcoin value is about to rise, invest now before you miss out",
+      "id": 9
+    }
+  ]
+}
