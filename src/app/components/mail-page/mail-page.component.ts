@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { Folder } from 'src/app/core/models/data/folder.model';
 import { Mail } from 'src/app/core/models/data/mail.model';
 import { FolderService } from 'src/app/core/models/services/folder.service';
@@ -28,7 +29,7 @@ export class MailPageComponent implements OnInit {
 
   ngOnInit() {
     this.initObservables();
-    this.initForm();
+    this.initForms();
   }
 
   private initObservables(){
@@ -41,21 +42,37 @@ export class MailPageComponent implements OnInit {
     this.mailService.setMailAsRead(id);
   }
 
-  private initForm(){
+  private async initForms(){
     this.folderForm = this.formBuilder.group({
-                                          name: [""]
-                                        });
+      foldId: new FormControl(0)
+    });
   }
 
   private getCurrentMailId(): number{
-    return Number(this.route.snapshot.params['id']);
+    return Number(this.route.snapshot.params['mailId']);
   }
 
-  get(str: String): boolean{
-    return true;
+  private async getCurrentFolderId(): Promise<number>{
+    let folderId = Number(this.route.snapshot.params['folderId']);
+
+    if(Number.isInteger(folderId)){
+      return folderId;
+    }
+
+    let mailId = this.getCurrentMailId();
+
+    folderId = (await this.mailService.getMailById(mailId)).foldId;
+
+    if(folderId > 0){
+      return folderId;
+    }
+
+    return 0;
   }
 
-  setFolder(){
-      this.mailService.setMailFolderId(this.getCurrentMailId(),2);
+  updateFolder(){
+    let mailId = this.getCurrentMailId();
+    let newFolderId = Number(this.folderForm.controls['foldId'].value);
+    this.mailService.setMailFolderId(mailId,newFolderId);
   }
 }

@@ -6,7 +6,16 @@
 </mat-list>
 
 <form [formGroup]="newFolder" class="add" (ngSubmit)="addFolder(name.value)">
-    <input formControlName="name" #name class="add-item" type="text" placeholder="Add a new Folder">
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Add a new Folder</mat-label>
+        <input matInput formControlName="name" #name class="add-item" type="text" placeholder="">
+        
+        <div *ngIf="newFolder.get('name') as field">
+            <app-errors-presenter [errors]="field.errors" *ngIf="field.touched"></app-errors-presenter>
+        </div>
+
+    </mat-form-field>
+
     <button [disabled]="newFolder.invalid" class="button" style="vertical-align:middle">
         <span>+</span>
     </button>

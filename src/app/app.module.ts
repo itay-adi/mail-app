@@ -19,6 +19,9 @@ import { FoldersListComponent } from './components/folders-list/folders-list.com
 import { MatListModule} from '@angular/material/list';
 import { MailsTableComponent } from './components/mails-table/mails-table.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {MatSelectModule} from '@angular/material/select';
+import {MatInputModule} from '@angular/material/input';
+import { ErrorsPresenterComponent } from './components/errors-presenter/errors-presenter.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +35,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FoldersComponent,
     FoldersListComponent,
     MailsTableComponent,
+    ErrorsPresenterComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,7 +47,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatToolbarModule,
     MatListModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatSelectModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

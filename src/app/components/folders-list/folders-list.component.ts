@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { Folder } from 'src/app/core/models/data/folder.model';
 import { FolderService } from 'src/app/core/models/services/folder.service';
+import { maxLettersValidators } from 'src/app/validators/general-validators';
 
 @Component({
   selector: 'app-folders-list',
@@ -22,7 +23,7 @@ export class FoldersListComponent implements OnInit {
     this.allFolders$ = this.folderService.getAllFolders();
 
     this.newFolder = this.formBuilder.group({
-      name: ["", [Validators.required]]
+      name: ["", [Validators.required, maxLettersValidators(25)]]
     });
   }
 
@@ -42,5 +43,9 @@ export class FoldersListComponent implements OnInit {
     this.folderService.deleteFolderById(Number(folderId)).then(()=>{
       this.folderService.foldersToArray();
     });
+  }
+
+  get(filedName: string){
+    return this.newFolder.get(filedName);
   }
 }

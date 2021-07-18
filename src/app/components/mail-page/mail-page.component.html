@@ -1,3 +1,9 @@
+<button class="button" routerLink="..">
+    <span>Back to List</span>
+</button>
+
+<h3 class="seperate">_____________________________________</h3>
+
 <div *ngIf="(mail$ | async) as mail">
     <h2>From: {{mail.from}}</h2>
     <h1>{{mail.subject}}</h1>
@@ -6,21 +12,17 @@
 
 <h3 class="seperate">_____________________________________</h3>
 
-<form [formGroup]="folderForm" class="form" (ngSubmit)="setFolder()">
-    <div class="form-field">
-        <label>Attach to a Folder: </label>
-        <select name="folders" class="folders" formControlName="name">
-            <option value=""></option>
-            <option *ngFor="let folder of (folders$ | async)" value="folder.id">{{folder.name}}</option>
-        </select>
-    </div>
+<form [formGroup]="folderForm" class="form" (ngSubmit)="updateFolder()">
+    <mat-form-field appearance="fill">
+        <mat-label>Attach to a Folder: </mat-label>
+        <mat-select name="folders" class="folders" formControlName="foldId">
+            <mat-option value=""></mat-option>
+            <mat-option *ngFor="let folder of (folders$ | async)" value="{{folder.id}}">{{folder.name}}</mat-option>
+        </mat-select>
+    </mat-form-field>
 
-    <div class="buttons">
-        <button>Save</button>
-    </div>
+    <button class="save-button" mat-raised-button color="primary">Save</button>
 </form>
-
-<button class="button" routerLink=".."><span>Back to List</span></button>
 
 <div *ngIf="!(mail$ | async)">
     <h2>Mail Not Found...</h2>

@@ -11,10 +11,10 @@ const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full'},
   { path: 'home', component: HomeComponent },
   { path: 'mails', component: MailsListComponent },
-  { path: 'mails/:id', component: MailPageComponent},
+  { path: 'mails/:mailId', component: MailPageComponent},
   { path: 'folders', component: FoldersListComponent},
-  { path: 'folders/:id', component: FoldersComponent},
-  { path: 'folders/:folderId/:id', component: MailPageComponent},
+  { path: 'folders/:folderId', component: FoldersComponent},
+  { path: 'folders/:folderId/:mailId', component: MailPageComponent},
   { path: '**', component: PageNotFoundComponent}
 ];
 

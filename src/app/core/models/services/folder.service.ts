@@ -29,6 +29,14 @@ export class FolderService {
     return this.allFolders$.asObservable();
   }
 
+  getFolderById(folderId: number): Promise<Folder>{
+    const url = `${this.baseUrl}/${folderId}`;
+
+    return this.httpClient
+               .get<Folder>(url)
+               .toPromise();
+  }
+
   addNewFolder(folder: Folder): Promise<Folder>{
     const url = this.baseUrl;
 

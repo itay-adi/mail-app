@@ -49,6 +49,6 @@ export class MailsTableComponent implements OnInit {
   }
 
   private getCurrentFolderId(): number{
-    return Number(this.route.snapshot.params['id']);
+    return Number(this.route.snapshot.params['folderId']);
   }
 }
