@@ -5,5 +5,5 @@ export interface Mail{
     isFlagged: boolean,
     subject: string,
     content: string,
-    folderId?: number,
+    foldId: number,
 }

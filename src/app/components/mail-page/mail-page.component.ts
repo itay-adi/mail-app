@@ -23,14 +23,15 @@ export class MailPageComponent implements OnInit {
               private formBuilder: FormBuilder,
               private mailService: MailService,
               private folderService: FolderService,
-              private route: ActivatedRoute) { }
+              private route: ActivatedRoute
+              ) { }
 
   ngOnInit() {
-    this.initObseervables();
-    //this.initForm();
+    this.initObservables();
+    this.initForm();
   }
 
-  private initObseervables(){
+  private initObservables(){
     let id = this.getCurrentMailId();
     
     this.folderService.foldersToArray();
@@ -40,35 +41,11 @@ export class MailPageComponent implements OnInit {
     this.mailService.setMailAsRead(id);
   }
 
-  /*async initForm(){
-    this.initMailEditForm();
-
-    let initialTodoList: TodoList = await this.getCurrentTodoListProperties();
-    this.listForm.reset(initialTodoList);
-  }*/
-
-  private initMailEditForm(){
-    this.folderForm = this.formBuilder.group(
-      {
-        id: new FormControl(0),
-        name: new FormControl(''),
-      }
-    );
+  private initForm(){
+    this.folderForm = this.formBuilder.group({
+                                          name: [""]
+                                        });
   }
-
-  /*async getCurrentMailProperties(): Promise<TodoList>{
-    let currentTodoListProperties: TodoList = {
-      id: Number(await this.list$.pipe(first(), map(l => l?.id)).toPromise()),
-      caption: String(await this.list$.pipe(first(), map(l => l?.caption)).toPromise()),
-      description: String(await this.list$.pipe(first(), map(l => l?.description)).toPromise()),
-      icon: String(await this.list$.pipe(first(), map(l => l?.icon)).toPromise()),
-      color: String(await this.list$.pipe(first(), map(l => l?.color)).toPromise())
-    }
-
-    return currentTodoListProperties;
-  }*/
-
-
 
   private getCurrentMailId(): number{
     return Number(this.route.snapshot.params['id']);

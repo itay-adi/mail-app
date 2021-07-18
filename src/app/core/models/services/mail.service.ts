@@ -101,7 +101,7 @@ export class MailService {
 
     let mails = this.httpClient.get<Mail[]>(url)
                                   .pipe(
-                                    map(mail => mail.filter(m => m.folderId === folderId)))
+                                    map(mail => mail.filter(m => m.foldId === folderId)))
                                   .toPromise();
 
     return mails;                                  

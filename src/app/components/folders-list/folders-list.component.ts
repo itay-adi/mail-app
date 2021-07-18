@@ -37,4 +37,10 @@ export class FoldersListComponent implements OnInit {
       this.newFolder.reset();
     });
   }
+
+  deleteFolder(folderId : number | undefined){
+    this.folderService.deleteFolderById(Number(folderId)).then(()=>{
+      this.folderService.foldersToArray();
+    });
+  }
 }

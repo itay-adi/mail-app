@@ -27,7 +27,7 @@ export class MailsTableComponent implements OnInit {
     {
       this.allMails$ = this.mailService.getAllMails()
                                        .pipe(
-                                         map(mail => mail.filter(m => m.folderId === index))
+                                         map(mail => mail.filter(m => m.foldId === index))
                                        )
     }
 

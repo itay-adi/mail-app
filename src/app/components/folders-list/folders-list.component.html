@@ -1,5 +1,8 @@
 <mat-list>
-    <mat-list-item *ngFor="let folder of (allFolders$ | async)" routerLink="{{folder.id}}">{{folder.name}}</mat-list-item>
+    <mat-list-item *ngFor="let folder of (allFolders$ | async)">
+        <span class="folder-name" routerLink="{{folder.id}}">{{folder.name}}</span>
+        <span class="material-icons" (click)="deleteFolder(folder.id)">delete</span> 
+    </mat-list-item>
 </mat-list>
 
 <form [formGroup]="newFolder" class="add" (ngSubmit)="addFolder(name.value)">

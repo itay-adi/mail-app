@@ -5,8 +5,7 @@
 }
 
 mat-list-item{
-    max-width: 350px;
-    display: flex;
+    max-width: 300px;
 }
 
 mat-list-item:hover{
@@ -14,8 +13,17 @@ mat-list-item:hover{
     background-color: rgb(252, 243, 239);
 }
 
+.folder-name{
+  min-width: 250px;
+}
+
 form{
     margin: 10px;
+}
+
+.material-icons:hover{
+  color: red;
+  transition: 0.2s;
 }
 
 input{
@@ -61,4 +69,8 @@ input{
   .button:hover span:after {
     opacity: 1;
     right: 0;
+  }
+
+  .button:disabled{
+    color: rgb(184, 184, 184);
   }

@@ -6,15 +6,19 @@
 
 <h3 class="seperate">_____________________________________</h3>
 
-<button (click)="setFolder()">dssdf</button>
+<form [formGroup]="folderForm" class="form" (ngSubmit)="setFolder()">
+    <div class="form-field">
+        <label>Attach to a Folder: </label>
+        <select name="folders" class="folders" formControlName="name">
+            <option value=""></option>
+            <option *ngFor="let folder of (folders$ | async)" value="folder.id">{{folder.name}}</option>
+        </select>
+    </div>
 
-<!--<div class="form-field" *ngIf="get('icon') as field">
-    <label>Attach to a Folder: </label>
-    <select name="folders" class="folders" formControlName="folders">
-        <option value=""></option>
-        <option *ngFor="let folder of (folders$ | async)" value="folder.id">{{folder.name}}</option>
-    </select>
-</div>-->
+    <div class="buttons">
+        <button>Save</button>
+    </div>
+</form>
 
 <button class="button" routerLink=".."><span>Back to List</span></button>
 

@@ -38,4 +38,12 @@ export class FolderService {
 
     return newFolder;
   }
+
+  deleteFolderById(folderId : number): Promise<Folder>{
+    const url = `${this.baseUrl}/${folderId}`;
+
+    return this.httpClient
+            .delete<Folder>(url)
+            .toPromise();
+  }
 }
