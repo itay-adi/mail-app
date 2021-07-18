@@ -1,8 +1,8 @@
-import { HttpClientModule } from '@angular/common/http';
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
+import { NgModule } from '@angular/core';
+
+import { CoreModule } from './core/core.module';
+
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { MailsListComponent } from './components/mails-list/mails-list.component';
@@ -10,17 +10,9 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { CurrStateComponent } from './components/curr-state/curr-state.component';
 import { MailPageComponent } from './components/mail-page/mail-page.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatSliderModule } from '@angular/material/slider';
-import {MatButtonModule} from '@angular/material/button';
-import {MatToolbarModule} from '@angular/material/toolbar';
 import { FoldersComponent } from './components/folders/folders.component';
 import { FoldersListComponent } from './components/folders-list/folders-list.component';
-import { MatListModule} from '@angular/material/list';
 import { MailsTableComponent } from './components/mails-table/mails-table.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {MatSelectModule} from '@angular/material/select';
-import {MatInputModule} from '@angular/material/input';
 import { ErrorsPresenterComponent } from './components/errors-presenter/errors-presenter.component';
 
 @NgModule({
@@ -38,18 +30,7 @@ import { ErrorsPresenterComponent } from './components/errors-presenter/errors-p
     ErrorsPresenterComponent,
   ],
   imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    BrowserAnimationsModule,
-    MatSliderModule,
-    MatButtonModule,
-    MatToolbarModule,
-    MatListModule,
-    FormsModule,
-    ReactiveFormsModule,
-    MatSelectModule,
-    MatInputModule
+    CoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]
